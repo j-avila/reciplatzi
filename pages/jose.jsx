@@ -40,7 +40,7 @@ export const Jose = () => {
     <Wrapp>
       <h1>Recetas</h1>
       <ul>
-        {data?.meals.map((recipe: object) => (
+        {data?.meals.map((recipe) => (
           <li key={recipe.idMeal}>{recipe.strMeal}</li>
         ))}
       </ul>
