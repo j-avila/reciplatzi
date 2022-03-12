@@ -3,7 +3,7 @@ import React, { useEffect } from "react"
 import { QueryClient, useQuery } from "react-query"
 import { dehydrate } from "react-query/hydration"
 import styled from "styled-components"
-import { getRecipes } from "./api/hello"
+import { getRecipes } from "./api/services"
 
 export const getStaticProps = async () => {
   const queryClient = new QueryClient()

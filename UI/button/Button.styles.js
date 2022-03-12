@@ -3,15 +3,17 @@ import { darken } from "polished"
 
 export const ButWrapp = styled.button`
   border: 0;
-  border-radius: 4px;
-  padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.md}`};
+  border-radius: ${({ theme }) => theme.spacing.sm};
+  padding: ${({ theme }) => `${theme.spacing.md}`};
   background: ${({ variant, theme }) => `${theme.colors[variant]}`};
   color: ${({ theme }) => theme.colors.background};
-  transition: "background 0.3s ease-in-out";
+  transition: "all 0.3s ease-in-out";
+  font-size: ${({ size }) =>
+    size === "large" ? "30px" : size === "medium" ? "22px" : "16px"};
   &:first-letter {
     text-transform: uppercase;
   }
-  svg {
+  i {
     display: inline-block;
     margin-right: ${({ theme }) => theme.spacing.sm};
     color: ${({ theme }) => theme.colors.background};
