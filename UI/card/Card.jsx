@@ -4,8 +4,7 @@ import PropTypes from "prop-types"
 import { CardWrapper } from "./Card.styles"
 
 const Card = ({ data, handleFavourite, isFav, size, orientation = "vert" }) => {
-  const { idMeal, strMeal, strArea, strMealThumb, strYoutube, strCategory } =
-    data
+  const { strMeal, strArea, strMealThumb, strYoutube, strCategory } = data
   const [placeholderImg, setPlaceholderImg] = useState(
     "https://www.google.com/url?sa=i&url=https%3A%2F%2Fdribbble.com%2Fshots%2F4187820-404-Food-Not-Found&psig=AOvVaw2wBnyyKJ9QF6ZKyb6Umk3E&ust=1647132088813000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCOigw6qrv_YCFQAAAAAdAAAAABAI"
   )

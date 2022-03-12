@@ -28,10 +28,9 @@ export default class CustomDocument extends Document {
             content="/favicon/browserconfig.xml"
           />
           <meta name="theme-color" content="#000000" />
-
           {/* google fonts */}
           <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
           <link
             href="https://fonts.googleapis.com/css2?family=Glory:wght@300;400;700&family=Open+Sans:wght@300;400;600&display=swap"
             rel="stylesheet"
@@ -39,7 +38,7 @@ export default class CustomDocument extends Document {
           {/* awesome font */}
           <script
             src="https://kit.fontawesome.com/acc0890c64.js"
-            crossorigin="anonymous"
+            crossOrigin="anonymous"
           />
         </Head>
         <body>
