@@ -31,7 +31,7 @@ describe("Rendering app", () => {
       .should("have.text", "Seri muka kuih")
   })
 
-  it("Search an recipe and render th results", () => {
+  it("Search an recipe and render the results", () => {
     cy.get('input[type="text"]').type("cheese")
     cy.get("#main-content #content #card").should("have.length", 8)
 
@@ -41,6 +41,13 @@ describe("Rendering app", () => {
     cy.get("#main-content #content #card article h2")
       .last()
       .should("have.text", "Fruit and Cream Cheese Breakfast Pastries")
+  })
+
+  it("Search an recipe and render without results", () => {
+    cy.get('input[type="text"]').type("arepa")
+    cy.get("#main-content #content #card").should("have.length", 0)
+
+    cy.get("article h1").should("have.text", "nothing found")
   })
 
   it("Open & close the favorites menu", () => {

@@ -12,8 +12,9 @@ import { QueryClient, QueryClientProvider } from "react-query"
 describe("Must Render the entire app", () => {
   let component
   const trigger = jest.fn()
+  const queryCache = new QueryClient()
   beforeEach(() => {
-    const queryCache = new QueryClient()
+    jest.clearAllMocks()
     component = render(
       <QueryClientProvider client={queryCache}>
         <ThemeProvider theme={lightTheme}>
