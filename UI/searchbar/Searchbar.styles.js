@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { darken } from "polished"
 
 export const Dropdown = styled.div`
   position: relative;
@@ -9,7 +8,7 @@ export const Dropdown = styled.div`
     right: 0;
     color: white;
     background-color: ${({ theme }) => {
-      const color = darken(0.1, theme.colors.background)
+      const color = theme.colors.darken.background
       return color
     }};
     p {

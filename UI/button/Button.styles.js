@@ -1,8 +1,8 @@
 import styled from "styled-components"
-import { darken } from "polished"
 
 export const ButWrapp = styled.button`
   border: 0;
+  width: ${({ fullWidth }) => (fullWidth ? "100%" : "fit-content")};
   border-radius: ${({ theme }) => theme.spacing.sm};
   padding: ${({ theme }) => `${theme.spacing.md}`};
   background: ${({ variant, theme }) => `${theme.colors[variant]}`};
@@ -21,9 +21,6 @@ export const ButWrapp = styled.button`
   &:hover {
     cursor: pointer;
     transition: "all 0.5s ease-in-out";
-    background: ${({ theme, variant }) => {
-      const color = darken(0.3, theme.colors[variant])
-      return color
-    }};
+    background: ${({ theme, variant }) => theme.colors.darken[variant]};
   }
 `

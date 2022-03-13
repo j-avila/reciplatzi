@@ -85,7 +85,7 @@ const Home = (params) => {
   }, [favs])
 
   return (
-    <Wrapper>
+    <Wrapper id="app">
       <Drawer
         data={favs}
         transitionExit={transitionExit}
@@ -129,7 +129,7 @@ const Home = (params) => {
       </HeroCover>
       {data?.meals ? (
         <ContentGrid
-          id="content"
+          id="main-content"
           layout={layout === "list" ? "1fr" : "repeat(3, 1fr)"}
           ref={ref}
         >

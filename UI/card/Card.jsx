@@ -57,12 +57,12 @@ const Card = ({ data, handleFavourite, isFav, size, orientation = "vert" }) => {
   )
 }
 
-Card.PropTypes = {
-  idMeal: PropTypes.string.isRequired,
-  strMealThumb: PropTypes.string.isRequired,
-  strMeal: PropTypes.string.isRequired,
-  strCategory: PropTypes.string.isRequired,
-  strArea: PropTypes.string.isRequired,
+Card.propTypes = {
+  idMeal: PropTypes.string,
+  strMealThumb: PropTypes.string,
+  strMeal: PropTypes.string,
+  strCategory: PropTypes.string,
+  strArea: PropTypes.string,
   strYoutube: PropTypes.string,
   isFav: PropTypes.bool,
   size: PropTypes.string,

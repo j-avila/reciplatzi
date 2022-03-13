@@ -1,3 +1,4 @@
+import Script from "next/script"
 import React, { useState, createContext } from "react"
 // styled components
 import { createGlobalStyle, ThemeProvider } from "styled-components"
@@ -36,6 +37,12 @@ const ThemeWrapper = ({ children }) => {
 
   return (
     <>
+      {/* awesome font */}
+      <Script
+        src="https://kit.fontawesome.com/acc0890c64.js"
+        crossOrigin="anonymous"
+        strategy="beforeInteractive"
+      />
       <Context.Provider value={{ theme, setContext }}>
         <GlobalStyle colorSchema={theme} />
         <ThemeProvider theme={theme === "dark" ? darkTheme : lightTheme}>

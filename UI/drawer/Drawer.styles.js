@@ -25,6 +25,11 @@ export const DrawerContainer = styled.div`
       margin-bottom: 1rem;
       font-size: larger;
     }
+    .drawer-content {
+      #card {
+        margin-bottom: 1rem;
+      }
+    }
     &.exit {
       animation: drawerTransitionExit 0.6s;
     }

@@ -1,40 +1,38 @@
 /* eslint-disable react/display-name */
-import React, { forwardRef } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import { ButWrapp } from "./Button.styles"
 
-const Button = forwardRef(
-  ({
-    children,
-    icon,
-    label,
-    type = "button",
-    fullWidth,
-    variant = "primary",
-    onClick,
-    size,
-    ...props
-  }) => {
-    return (
-      <ButWrapp
-        className={props.className}
-        type={type}
-        fullWidth={fullWidth}
-        variant={variant}
-        size={size}
-        onClick={onClick}
-      >
-        {icon && <i className={icon} />}
-        {label || children}
-      </ButWrapp>
-    )
-  }
-)
+const Button = ({
+  children,
+  icon,
+  label,
+  type = "button",
+  fullWidth,
+  variant = "primary",
+  onClick,
+  size,
+  ...props
+}) => {
+  return (
+    <ButWrapp
+      className={props.className}
+      type={type}
+      fullWidth={fullWidth}
+      variant={variant}
+      size={size}
+      onClick={onClick}
+    >
+      {icon && <i className={icon} />}
+      {label || children}
+    </ButWrapp>
+  )
+}
 
 Button.propTypes = {
   children: PropTypes.node,
   icon: PropTypes.string,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   type: PropTypes.string,
   fullWidth: PropTypes.bool,
   variant: PropTypes.oneOfType([

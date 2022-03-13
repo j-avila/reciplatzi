@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { darken } from "polished"
 
 export const CardWrapper = styled.div`
   width: ${({ size }) => (size ? `${size}px` : "390px")};
@@ -59,12 +58,12 @@ export const CardWrapper = styled.div`
           text-align: center;
         }
         a {
-          color: tomato;
+          color: ${({ theme }) => theme.colors.primary};
           .fa-video {
             font-size: 1.5rem;
           }
           &:hover {
-            color: darken(0.5, tomato);
+            color: ${({ theme }) => theme.colors.darken.primary};
           }
         }
       }

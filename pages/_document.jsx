@@ -35,11 +35,6 @@ export default class CustomDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Glory:wght@300;400;700&family=Open+Sans:wght@300;400;600&display=swap"
             rel="stylesheet"
           />
-          {/* awesome font */}
-          <script
-            src="https://kit.fontawesome.com/acc0890c64.js"
-            crossOrigin="anonymous"
-          />
         </Head>
         <body>
           <Main />
