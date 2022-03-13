@@ -15,6 +15,7 @@ import Drawer from "../UI/drawer/Drawer"
 import { useInView } from "react-intersection-observer"
 import { Context } from "../components/themeWrapper/ThemeWrapper"
 import Switch from "../UI/themeSwitch/Switch"
+import Head from "next/head"
 
 export const getStaticProps = async () => {
   const queryClient = new QueryClient()
@@ -85,100 +86,109 @@ const Home = (params) => {
   }, [favs])
 
   return (
-    <Wrapper id="app">
-      <Drawer
-        data={favs}
-        transitionExit={transitionExit}
-        handleExit={handleExit}
-        handleFavs={favsHandler}
-        open={open}
-      />
-      <header>
-        <Platzi />
-        <Switch theme={theme} onClick={themeHandler} className="theme-switch" />
-      </header>
-      <HeroCover>
-        <Image
-          src="/assets/chef.png"
-          width="923"
-          height="795"
-          // layout="fill"
-          alt="chef cocinando"
+    <>
+      <Head>
+        <title>ReciPlatzi</title>
+      </Head>
+      <Wrapper id="app">
+        <Drawer
+          data={favs}
+          transitionExit={transitionExit}
+          handleExit={handleExit}
+          handleFavs={favsHandler}
+          open={open}
         />
-        <h1>Looking for some meal inspiration for your daily basis?</h1>
-        <div className="actions">
-          <Searchbar searchHandler={handleSearch} />
-          <div className="but-actions">
+        <header>
+          <Platzi />
+          <Switch
+            theme={theme}
+            onClick={themeHandler}
+            className="theme-switch"
+          />
+        </header>
+        <HeroCover>
+          <Image
+            src="/assets/chef.png"
+            width="923"
+            height="795"
+            // layout="fill"
+            alt="chef cocinando"
+          />
+          <h1>Looking for some meal inspiration for your daily basis?</h1>
+          <div className="actions">
+            <Searchbar searchHandler={handleSearch} />
+            <div className="but-actions">
+              <Button
+                icon="fa-solid fa-shuffle"
+                label="surpise me!"
+                size="medium"
+                variant="accent"
+                onClick={() => {
+                  handleSearch({ type: "r" })
+                }}
+              />
+              <Button
+                icon="fa-solid fa-book"
+                label="favorites"
+                size="medium"
+                onClick={() => setOpen(true)}
+              />
+            </div>
+          </div>
+        </HeroCover>
+        {data?.meals ? (
+          <ContentGrid
+            id="main-content"
+            layout={layout === "list" ? "1fr" : "repeat(3, 1fr)"}
+            ref={ref}
+          >
+            <div className="layout-switch">
+              View as:
+              <span>
+                <i
+                  className={`fa-solid fa-grip ${
+                    layout === "grid" ? "active" : ""
+                  }`}
+                  onClick={() => setLayout("grid")}
+                />
+                <i
+                  className={`fa-solid fa-list ${
+                    layout === "list" ? "active" : ""
+                  }`}
+                  onClick={() => setLayout("list")}
+                />
+              </span>
+            </div>
+            <div id="content">
+              {data?.meals?.map((recipe) => (
+                <Card
+                  orientation={layout === "list" ? "hor" : "vert"}
+                  key={recipe.idMeal}
+                  data={recipe}
+                  isFav={checkFavs(recipe.idMeal)}
+                  handleFavourite={favsHandler}
+                />
+              ))}
+            </div>
+          </ContentGrid>
+        ) : isLoading ? (
+          <Loader />
+        ) : (
+          <NotFound />
+        )}
+        <footer>
+          {sticky && (
             <Button
-              icon="fa-solid fa-shuffle"
-              label="surpise me!"
-              size="medium"
-              variant="accent"
-              onClick={() => {
-                handleSearch({ type: "r" })
-              }}
-            />
-            <Button
-              icon="fa-solid fa-book"
               label="favorites"
-              size="medium"
+              icon="fa-solid fa-star"
+              className="sticky-favs"
               onClick={() => setOpen(true)}
             />
-          </div>
-        </div>
-      </HeroCover>
-      {data?.meals ? (
-        <ContentGrid
-          id="main-content"
-          layout={layout === "list" ? "1fr" : "repeat(3, 1fr)"}
-          ref={ref}
-        >
-          <div className="layout-switch">
-            View as:
-            <span>
-              <i
-                className={`fa-solid fa-grip ${
-                  layout === "grid" ? "active" : ""
-                }`}
-                onClick={() => setLayout("grid")}
-              />
-              <i
-                className={`fa-solid fa-list ${
-                  layout === "list" ? "active" : ""
-                }`}
-                onClick={() => setLayout("list")}
-              />
-            </span>
-          </div>
-          <div id="content">
-            {data?.meals?.map((recipe) => (
-              <Card
-                orientation={layout === "list" ? "hor" : "vert"}
-                key={recipe.idMeal}
-                data={recipe}
-                isFav={checkFavs(recipe.idMeal)}
-                handleFavourite={favsHandler}
-              />
-            ))}
-          </div>
-        </ContentGrid>
-      ) : isLoading ? (
-        <Loader />
-      ) : (
-        <NotFound />
-      )}
-      <footer>
-        {sticky && (
-          <Button
-            label="favorites"
-            icon="fa-solid fa-star"
-            className="sticky-favs"
-            onClick={() => setOpen(true)}
-          />
-        )}
-        made with ☕️ by <a href="https://github.com/j-avila"> jose avila</a>
-      </footer>
-    </Wrapper>
+          )}
+          made with ☕️ by <a href="https://github.com/j-avila"> jose avila</a>
+        </footer>
+      </Wrapper>
+    </>
   )
 }
 

@@ -10,24 +10,26 @@ export default class CustomDocument extends Document {
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           />
-          <meta name="theme-color" content="#000000" />
-          <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/favicon/apple-touch-icon.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/favicon/favicon-32x32.png"
-          />
-          <meta name="msapplication-TileColor" content="#000000" />
+          <meta name="theme-color" content="#ff725e" />
+          <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon.svg" />
+          <meta name="msapplication-TileColor" content="#ff725e" />
           <meta
             name="msapplication-config"
             content="/favicon/browserconfig.xml"
           />
-          <meta name="theme-color" content="#000000" />
+          <meta name="theme-color" content="#ff725e" />
+          <meta
+            name="description"
+            content="App for apply as frontend dev at Platzi"
+          />
+          <meta
+            name="keywords"
+            content="recipes, nextjs, ReactJS, frontend developer"
+          />
+          <meta name="author" content="Jose Avila" />
+          <meta name="robots" content="index" />
+
           {/* google fonts */}
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
