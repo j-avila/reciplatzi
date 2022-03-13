@@ -1,6 +1,6 @@
 import React from "react"
 import { NFWrapper } from "./NotFound.styles"
-import Graph from "../../public/assets/notFound.svg"
+import Graph from "../../public/assets/notfound.svg"
 
 const NotFound = () => {
   return (
