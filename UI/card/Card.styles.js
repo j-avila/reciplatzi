@@ -43,18 +43,24 @@ export const CardWrapper = styled.div`
     .cats {
       display: flex;
       justify-content: flex-start;
-      span {
+      .section {
         margin-right: ${({ theme }) => theme.spacing.md};
-        h3 {
+        span {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
           i {
             margin-right: ${({ theme }) => theme.spacing.sm};
           }
+        }
+        h3 {
           &:first-letter {
             text-transform: uppercase;
           }
         }
         p {
           color: grey;
+          margin: 0;
           text-align: center;
         }
         a {
@@ -104,11 +110,25 @@ export const CardWrapper = styled.div`
     .thumb {
       height: 180px;
     }
+    max-width: 170px;
+
     article {
       text-align: center;
       padding: ${({ theme }) => theme.spacing.sm};
+      h2 {
+        font-size: 25px;
+        height: fit-content;
+      }
       .cats {
         flex-direction: column;
+        .section {
+          display: flex;
+          margin-bottom: ${({ theme }) => theme.spacing.sm};
+          flex-direction: row;
+        }
+        h3 {
+          display: none;
+        }
       }
     }
     &.hor {
@@ -117,7 +137,57 @@ export const CardWrapper = styled.div`
         max-width: 35%;
       }
       article {
-        span,
+        .section,
+        p {
+          font-size: small;
+        }
+
+        h2 {
+          margin-bottom: ${({ theme }) => theme.spacing.sm};
+          height: max-content;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .cats {
+          flex-direction: row;
+        }
+      }
+    }
+  }
+  @media (min-width: 767px) and (max-width: 1250px) {
+    max-width: 180px;
+    .thumb {
+      height: 180px;
+    }
+    max-width: 170px;
+
+    article {
+      text-align: center;
+      padding: ${({ theme }) => theme.spacing.sm};
+      h2 {
+        font-size: 25px;
+        height: fit-content;
+      }
+      .cats {
+        flex-direction: column;
+        .section {
+          display: flex;
+          margin-bottom: ${({ theme }) => theme.spacing.sm};
+          flex-direction: row;
+        }
+        h3 {
+          display: none;
+        }
+      }
+    }
+    &.hor {
+      max-width: 80vw;
+      .thumb {
+        max-width: 35%;
+      }
+      article {
+        .section,
         p {
           font-size: small;
         }

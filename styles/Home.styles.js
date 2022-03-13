@@ -110,6 +110,33 @@ export const HeroCover = styled.div`
       }
     }
   }
+  /* tablets */
+  @media (min-width: 767px) and (max-width: 1250px) {
+    h1 {
+      top: 0;
+      right: 0;
+      position: relative;
+      font-size: 60px;
+      text-align: center;
+      margin: 0 auto;
+      padding: ${({ theme }) => `0 ${theme.spacing.md}`};
+    }
+    .actions {
+      max-width: 80vw;
+      flex-direction: column;
+      top: 0;
+      padding: 1rem;
+      margin: 2rem auto;
+      flex-direction: column;
+
+      .but-actions {
+        width: 100%;
+        display: flex;
+        margin-top: 2rem;
+        justify-content: space-between;
+      }
+    }
+  }
 `
 export const ContentGrid = styled.div`
   margin: 5vh auto;
@@ -144,8 +171,60 @@ export const ContentGrid = styled.div`
       margin: 0 auto;
     }
   }
+
   @media (max-width: 768px) {
-    grid-template-columns: 1fr 1fr;
-    column-gap: 5px;
+    #content {
+      padding: ${({ theme }) => theme.spacing.md};
+      box-sizing: border-box;
+      grid-template-columns: ${({ layout }) =>
+        `${layout === "1fr" ? "1fr" : "1fr 1fr"}`};
+      column-gap: 5px;
+      #card {
+        &.hor {
+          height: fit-content;
+          article {
+            width: 55%;
+            h2 {
+              text-align: left;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* tablets */
+  @media (min-width: 767px) and (max-width: 1250px) {
+    #content {
+      padding: ${({ theme }) => theme.spacing.md};
+      box-sizing: border-box;
+      grid-template-columns: ${({ layout }) =>
+        `${layout === "1fr" ? "1fr" : "repeat(3, 1fr)"}`};
+      column-gap: 5px;
+      #card {
+        max-width: 230px;
+        &.hor {
+          max-width: 80vw;
+          height: fit-content;
+          article {
+            width: 55%;
+            h2 {
+              text-align: left;
+              font-size: xx-large;
+            }
+            .cats {
+              .section {
+                flex-direction: column;
+                span {
+                  h3 {
+                    display: block;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 `

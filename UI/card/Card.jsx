@@ -28,28 +28,30 @@ const Card = ({ data, handleFavourite, isFav, size, orientation = "vert" }) => {
         <h2>{strMeal}</h2>
         <div className="cats">
           {strArea && (
-            <span>
-              <h3>
-                <i className="fas fa-map-marker" /> area
-              </h3>
+            <div className="section">
+              <span>
+                <i className="fas fa-map-marker" />
+                <h3>area</h3>
+              </span>
               <p>{strArea}</p>
-            </span>
+            </div>
           )}
           {strCategory && (
-            <span>
-              <h3>
-                <i className="fa-solid fa-list" /> category
-              </h3>
+            <div className="section">
+              <span>
+                <i className="fa-solid fa-list" />
+                <h3>category</h3>
+              </span>
               <p>{strCategory}</p>
-            </span>
+            </div>
           )}
           {strYoutube && (
-            <span>
+            <div className="section">
               <h3>video recipe</h3>
               <a href={strYoutube} target="_blank" rel="noreferrer">
                 <i className="fa-solid fa-video" />
               </a>
-            </span>
+            </div>
           )}
         </div>
       </article>
