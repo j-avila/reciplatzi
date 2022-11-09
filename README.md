@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+![project thumb](https://i.giphy.com/media/9g49XwlSO6TZgI7TNH/giphy-downsized-large.gif)
+
 # Specs of the project
 
 This project has been built under nextJs because the several troubles find using react-router or react-router dom and expressJs
